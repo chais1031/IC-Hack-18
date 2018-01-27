@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 12c17dfbf4401c0488d39e02175395ea
+  productGUID: 0c5a61797ea274643888cf2690754cf9
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -634,8 +634,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 14048340-ca25-4c45-b302-4b1360234a76
-  projectName: SilenceOfTheLabs
+  cloudProjectId: 79e05306-5790-41a3-889d-56be69569a57
+  projectName: SilenceOfTheLabs (1)
   organizationId: enyishang
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
