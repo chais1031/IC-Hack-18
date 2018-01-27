@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class shaking : MonoBehaviour 
 {
+    void OnTriggerEnter(Collider other)
+    {
+        Shake ();
+    }
+}
 
-    private Vector3 originPosition;
+private Vector3 originPosition;
     private Quaternion originRotation;
     public float shake_decay = 0.002f;
     public float shake_intensity = .3f;
 
     private float temp_shake_intensity = 0;
 
-    void OnGUI()
-    {
-        if (GUI.Button(new Rect(20, 40, 80, 20), "Shake"))
-        {
-            Shake();
-        }
-    }
-
+   
     void Update()
     {
         if (temp_shake_intensity > 0)
