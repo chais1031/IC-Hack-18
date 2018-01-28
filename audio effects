@@ -1,0 +1,21 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class musicc : MonoBehaviour
+{
+    public AudioClip MusicClip;
+    // the component that Unity uses to play your clip
+    public AudioSource MusicSource;
+    // Use this for initialization
+    void OnTriggerEnter(Collider other)
+    {
+        MusicSource.Play();
+    }
+
+    void Start()
+    {
+        MusicSource.clip = MusicClip;
+    }
+}
+
