@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SplashFade : MonoBehaviour
-{
+public class Fade : MonoBehaviour {
+
     public Image splashImage;
 
     IEnumerator Start()
@@ -14,19 +14,26 @@ public class SplashFade : MonoBehaviour
 
         FadeIn();
         yield return new WaitForSeconds(4.0f);
-        FadeOut();
-        yield return new WaitForSeconds(4.0f);
-        SceneManager.LoadScene("SilenceOfTheLabs");
+/*
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                FadeOut();
+                yield return new WaitForSeconds(4.0f);
+                SceneManager.LoadScene("SilenceOfTheLabs");
+            }
+        }
+      */  
     }
 
     void FadeIn()
     {
-        splashImage.CrossFadeAlpha(1.0f, 1.5f, false);
+        splashImage.CrossFadeAlpha(1.0f, 3.5f, false);
     }
 
     void FadeOut()
     {
         splashImage.CrossFadeAlpha(0.0f, 2.5f, false);
     }
-
 }
