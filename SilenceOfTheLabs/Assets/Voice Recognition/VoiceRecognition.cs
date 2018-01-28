@@ -16,6 +16,11 @@ public class VoiceRecognition : MonoBehaviour {
             onHelloCall();
         });
 
+        keywords.Add("apple", () =>
+        {
+            onAppleCall();
+        });
+
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizerOnPhraseRecognized;
         keywordRecognizer.Start();
@@ -36,9 +41,14 @@ public class VoiceRecognition : MonoBehaviour {
     {
         print("Hello was called");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void onAppleCall()
+    {
+        print("Apple was called");
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
