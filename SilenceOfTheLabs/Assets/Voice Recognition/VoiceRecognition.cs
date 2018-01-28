@@ -11,6 +11,7 @@ public class VoiceRecognition : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
         keywords.Add("hello", () =>
         {
             onHelloCall();
