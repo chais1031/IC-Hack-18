@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class VoiceRecord : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    AudioSource aud;
+    public static float[] waveData = new float[16];
+    public float sensitivity = 100;
+    public float loudness = 0;
+
+    // Use this for initialization
+    void Start () {
 //*
-        AudioSource aud = GetComponent<AudioSource>();
+        aud = GetComponent<AudioSource>();
         aud.clip = Microphone.Start("Built-in Microphone", true, 10, 44100);
         aud.loop = true;
         while(!(Microphone.GetPosition(null) > 0)) { }
@@ -24,8 +29,48 @@ public class VoiceRecord : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        loudness = GetAveragedVolume() * sensitivity;
+        if (loudness > 30)
+        {
+            print("Too loud!");
+        }
+        /*
+        if (decibel > 50)
+        {
+            print("volume too big");
+        }
+        */
+        //PlotWave();
 	}
 
+    void PlotWave()
+    {
+        aud.GetSpectrumData(waveData, 0, FFTWindow.Blackman);
+    }
+
+    private float LinearToDecibel(float linear)
+    {
+        float dB;
+
+        if (linear != 0)
+            dB = 20.0f * Mathf.Log10(linear);
+        else
+            dB = -144.0f;
+
+        return dB;
+    }
+
+    float GetAveragedVolume()
+    {
+        float[] data = new float[256];
+        float a = 0;
+        aud.GetOutputData(data, 0);
+        foreach (float s in data)
+        {
+            a += Mathf.Abs(s);
+        }
+        return a / 256;
+    }
 
 }
